@@ -19,7 +19,10 @@
             color: #333;
             padding: 20px;
             text-align: center;
-            position: relative;
+            position: fixed; /* 固定顶栏 */
+            width: 100%; /* 使顶栏全宽 */
+            top: 0; /* 顶部对齐 */
+            z-index: 1000; /* 确保顶栏在其他元素之上 */
         }
         h1 {
             margin: 0;
@@ -55,7 +58,7 @@
             transition: left 0.3s;
             padding-top: 20px;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
+            z-index: 999; /* 确保侧边栏在内容之上 */
         }
         .sidebar a {
             padding: 15px 20px;
@@ -91,7 +94,7 @@
         }
         .container {
             max-width: 800px;
-            margin: 80px auto 20px; /* 添加顶部间距以避免被菜单栏遮挡 */
+            margin: 100px auto 20px; /* 添加顶部间距以避免被菜单栏遮挡 */
             padding: 20px;
             background: white;
             border-radius: 8px;
@@ -143,6 +146,59 @@
         }
         .query-form button:hover, .auth-form button:hover {
             background-color: #0051a8; /* 深蓝色 */
+        }
+        
+        /* 媒体查询 */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .user-info {
+                font-size: 14px;
+            }
+            .open-btn {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+            .sidebar {
+                width: 200px;
+            }
+            .sidebar a {
+                padding: 10px 15px;
+            }
+            .container {
+                margin: 100px auto 20px; /* 调整顶部间距 */
+                padding: 15px;
+            }
+            .query-form input, .auth-form input {
+                width: calc(100% - 18px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+            .user-info {
+                font-size: 12px;
+            }
+            .open-btn {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+            .sidebar {
+                width: 100%; /* 全宽 */
+            }
+            .sidebar a {
+                padding: 10px;
+            }
+            .container {
+                margin: 100px auto 20px; /* 调整顶部间距 */
+                padding: 10px;
+            }
+            .query-form input, .auth-form input {
+                width: calc(100% - 16px);
+            }
         }
     </style>
 </head>
