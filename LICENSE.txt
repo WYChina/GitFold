@@ -1,0 +1,2 @@
+wow,this is test for license
+Hello, git.
